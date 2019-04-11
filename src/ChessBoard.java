@@ -1,3 +1,4 @@
+
 public class ChessBoard {
     private int width;
     private int height;
@@ -15,21 +16,21 @@ public class ChessBoard {
         }
     }
 
-    private void printLine(int lineNumber){
+    private void printLine(int lineNumber) {
 
-        if (lineNumber % 2 == 0){
+        if (lineNumber % 2 == 0) {
             for (int i = 0; i < height; i++) {
                 if (i % 2 == 0) {
-                    System.out.print((char)9632);
+                    System.out.print((char) 9632);
                 } else
                     System.out.print(" ");
             }
-        }else{
+        } else {
             for (int i = 0; i < height; i++) {
                 if (i % 2 == 0) {
                     System.out.print(" ");
                 } else
-                    System.out.print((char)9632);
+                    System.out.print((char) 9632);
             }
         }
     }

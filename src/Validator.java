@@ -1,6 +1,4 @@
-/**
- * Created by avokado on 11.04.2019.
- */
+
 public class Validator {
     private final int PARAM_COUNT = 2;
 
@@ -9,7 +7,7 @@ public class Validator {
         int len = args.length;
 
         if (isCorrectParamQuantity(len) && isIntegers(args, len) && isParamsBiggerThanOne(args, len)) {
-                result = true;
+            result = true;
         }
 
         return result;
@@ -40,7 +38,7 @@ public class Validator {
         return result;
     }
 
-    private boolean isParamsBiggerThanOne(String[] args, int lenght){
+    private boolean isParamsBiggerThanOne(String[] args, int lenght) {
         boolean result = true;
 
         for (int i = 0; i < lenght; i++) {
