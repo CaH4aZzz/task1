@@ -13,9 +13,9 @@ public class Validator {
         return result;
     }
 
-    private boolean isCorrectParamQuantity(int lenght) {
+    private boolean isCorrectParamQuantity(int paramCount) {
 
-        if (lenght == PARAM_COUNT) {
+        if (paramCount == PARAM_COUNT) {
             return true;
         } else {
             System.out.println("Wrong quantity of Parameters!\nPlease enter 2 (TWO) parameters");
