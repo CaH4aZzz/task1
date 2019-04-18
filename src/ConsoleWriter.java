@@ -6,7 +6,7 @@ public class ConsoleWriter {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < chessBoard.getHeight(); i++) {
             for (int j = 0; j < chessBoard.getWidth(); j++) {
-                if ((i + j) % 2 == 0) sb.append((char) 9632);
+                if ((i + j) % 2 == 0) sb.append("*");
                 else sb.append('_');
             }
             sb.append('\n');
