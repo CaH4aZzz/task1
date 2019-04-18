@@ -1,6 +1,4 @@
-/**
- * Created by avokado on 19.04.2019.
- */
+
 public class ConsoleWriter {
 
     static void printChessBoard (ChessBoard chessBoard){
