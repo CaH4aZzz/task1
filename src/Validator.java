@@ -1,52 +1,33 @@
 
 public class Validator {
-    private final int PARAM_COUNT = 2;
+    private static final int PARAM_COUNT = 2;
 
-    boolean isValid(String[] args) {
-        boolean result = false;
+    boolean isValid(String[] args) throws NumberFormatException, IllegalArgumentException{
         int len = args.length;
 
-        if (isCorrectParamQuantity(len) && isIntegers(args, len) && isParamsBiggerThanOne(args, len)) {
-            result = true;
-        }
-
-        return result;
+        return (isCorrectParamQuantity(len) && isIntegersAndBiggerThanZero(args, len));
     }
 
-    private boolean isCorrectParamQuantity(int paramCount) {
+    private boolean isCorrectParamQuantity(int paramCount) throws IllegalArgumentException{
 
-        if (paramCount == PARAM_COUNT) {
-            return true;
-        } else {
-            System.out.println("Wrong quantity of Parameters!\nPlease enter 2 (TWO) parameters");
-            return false;
-        }
+        if (!(paramCount == PARAM_COUNT))
+            throw new IllegalArgumentException("Wrong quantity of Parameters!\nPlease enter 2 (TWO) parameters");
+        return paramCount == PARAM_COUNT;
     }
 
-    private boolean isIntegers(String[] args, int lenght) {
-        boolean result = true;
+    private boolean isIntegersAndBiggerThanZero(String[] args, int lenght) throws NumberFormatException, IllegalArgumentException{
 
         for (int i = 0; i < lenght; i++) {
             try {
-                Integer.parseInt(args[i]);
+                int param;
+                if ((param = Integer.parseInt(args[i])) < 0)
+                    throw new IllegalArgumentException("Wrong value of parameter [" + (i + 1) + "] : " + args[i]+
+                            "\nPlease enter values not less than 1(ONE)");
             } catch (NumberFormatException e) {
-                System.out.println("Wrong input format! Please enter NUMBERS");
-                return false;
+                throw new NumberFormatException("Wrong input format for parameter [" + (i + 1) + "] : " + args[i]+
+                        "\nPlease enter only positive NUMBERS");
             }
         }
-
-        return result;
-    }
-
-    private boolean isParamsBiggerThanOne(String[] args, int lenght) {
-        boolean result = true;
-
-        for (int i = 0; i < lenght; i++) {
-            if (Integer.parseInt(args[i]) < 1) {
-                System.out.println("Wrong value of parameter [" + i + "]\nPlease enter values not less than 1(ONE)");
-                result = false;
-            }
-        }
-        return result;
+        return true;
     }
 }
